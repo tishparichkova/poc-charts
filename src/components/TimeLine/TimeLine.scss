@@ -1,0 +1,18 @@
+.timeline-holder {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+  .single-item {
+    flex-basis: calc(100% / 24);
+    margin: 15px 0;
+    color: #414042;
+    border-right: 1px solid rgba(151,151,151, .5);
+  }
+
+  &.last {
+    .single-item:last-child {
+      border: 0 none;
+    }
+  }
+}

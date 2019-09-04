@@ -1,0 +1,16 @@
+.chart-holder {
+  width: 100%;
+  border-bottom: 1px solid black;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+
+  .bar {
+    width: calc(100% / 48);
+    background-color: #80b4cc;
+    margin: 0 1px;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+  }
+}
