@@ -1,23 +1,30 @@
-import React from 'react';
-import './DonutChart.scss';
 
-const DonutChart = ({ options }) => {
+
+import React from 'react';
+import './PieChart.scss';
+
+/**
+ * Simple PieChar component,
+ * will render the colors, and the percentage passed in the options parameter
+ * 
+ * @param {Array} options - list of attributes to be set to the element like: fill, stroke, strokedashArray, and strokedashOffset
+ */
+const PieChart = ({ options }) => {
   return (
     <>
         {options && options.length &&
           <svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
-            <circle className="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="#fff"></circle>
+            <circle
+              className="donut-hole"
+            >  
+            </circle>
             {options.map((el, index) => {
               return ( 
-                <circle 
-                  className="pie-chart-slice"
-                  cx="21"
-                  cy="21"
-                  r="15.91549430918954"
+                <circle
                   key={index}
+                  className="pie-chart-slice"
                   fill={el.fill}
                   stroke={el.stroke}
-                  strokeWidth="5"
                   strokeDasharray={el.strokeDashArray}
                   strokeDashoffset={`${el.strokeDashOffet}`}>
                 </circle>
@@ -28,4 +35,4 @@ const DonutChart = ({ options }) => {
   );
 };
 
-export { DonutChart };
+export { PieChart };
