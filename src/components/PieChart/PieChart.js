@@ -1,6 +1,4 @@
-
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './PieChart.scss';
 
 /**
@@ -9,16 +7,43 @@ import './PieChart.scss';
  * 
  * @param {Array} options - list of attributes to be set to the element like: fill, stroke, strokedashArray, and strokedashOffset
  */
-const PieChart = ({ options }) => {
+const PieChart = ({ colors, data, isWithDots }) => {
+  const [details, setDetails] = useState([]);
+
+  useEffect(() => {
+    let options = [];
+    let strokeDashOffet = 25;
+    let singleSlice = {};
+
+    for (let counter = 0; counter < colors.length; counter++) {
+      singleSlice = Object.assign({}, colors[counter]);
+
+      singleSlice.strokeDashArray = `${data[counter]} ${100 - data[counter]}`;
+
+      strokeDashOffet = counter === 0 ? 25 : strokeDashOffet - data[counter - 1];
+  
+      singleSlice.strokeDashOffet = strokeDashOffet;
+
+      options.push(singleSlice);
+    }
+
+    setDetails(options);
+
+  }, [colors, data])
+
+
   return (
-    <>
-        {options && options.length &&
+    <div className="pie-chart">
+        {isWithDots &&
+          <div className="dots-holder">
+            <span className="single-dot"></span>
+            <span className="single-dot"></span>
+            <span className="single-dot"></span>
+          </div>
+        }
+        {details && !!details.length &&
           <svg width="100%" height="100%" viewBox="0 0 42 42" className="donut">
-            <circle
-              className="donut-hole"
-            >  
-            </circle>
-            {options.map((el, index) => {
+            {details.map((el, index) => {
               return ( 
                 <circle
                   key={index}
@@ -31,7 +56,7 @@ const PieChart = ({ options }) => {
             )})}
            </svg>
         }
-    </>
+    </div>
   );
 };
 

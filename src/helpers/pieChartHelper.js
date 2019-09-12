@@ -2,11 +2,12 @@ const pieChartHelper = (colors) => {
 
   /**
    * A method to build:
-   * stoke, fill, stokeDashAraay and strokeDashOffset
+   * stoke, fill, stokeDashArray and strokeDashOffset
    * 
    * @param  {...any} mockedPieChartData 
    */
   const buildAttributes = (...mockedPieChartData) => {
+    debugger;
     const details = [];
 
     colors.reduce((strokeDashOffet, singleSlice, index) => {

@@ -11,8 +11,24 @@
     r: 15.91549430918954;
   }
 
-  circle.donut-hole {
-    fill: #fff;
+  .pie-chart {
+    position: relative;
   }
 
+  .dots-holder {
+    justify-content: space-between;
+    display: flex;
+    width: 13px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    .single-dot {
+      background-color: #414042;
+      width: 3px;
+      height: 3px;
+      border-radius: 100%;
+    }
+  }
 }
