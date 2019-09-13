@@ -1,18 +1,18 @@
-.App {
-  .donut-chart-holder {
-    width: 100px;
-    height: 100px;
-  }
-
-  circle {
-    stroke-width: 5;
-    cx: 21;
-    cy: 21;
-    r: 15.91549430918954;
-  }
+.pie-chart-holder {
+  display: inherit;
+  position: relative;
 
   .pie-chart {
-    position: relative;
+    display: flex;
+    width: 32px;
+    height: 32px;
+
+    circle {
+      stroke-width: 5;
+      cx: 21;
+      cy: 21;
+      r: 15.91549430918954;
+    }
   }
 
   .dots-holder {
@@ -30,5 +30,29 @@
       height: 3px;
       border-radius: 100%;
     }
+  }
+
+  .legend {
+    margin-left: 10px;
+    font-size: 14px;
+    
+    &__information {
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+
+      span {
+        display: inherit;
+        align-items: center;
+      }
+
+      &__color {
+        border-radius: 100%;
+        width: 6px;
+        height: 6px;
+        margin: 0 5px;
+      }
+    }
+    
   }
 }

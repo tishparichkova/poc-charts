@@ -8,8 +8,9 @@ import './TimeLine.scss';
 const TimeLine = () => {
   const createLine = () => {
     const children = [];
+    const HOURS = 24;
 
-    for (let i = 0; i < 24; i++) {
+    for (let i = 0; i < HOURS; i++) {
       children.push(<span key={i} className="single-item">{`${i}:00`}</span>)
     }
   

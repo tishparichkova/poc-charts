@@ -3,21 +3,6 @@
   padding: 0 35px;
 }
 
-.bar-chart-section {
-  overflow: auto;
-  display: flex;
-}
-
-.chart-timeline-holder {
-  flex: 0 0 100%;
-}
-
-.column-chart-wrapper {
-  display: flex;
-  flex-direction: row;
-  overflow: auto;
-}
-
 .App div:last-child > div.timeline-holder > span:last-child {
   border: 0 none;
 }

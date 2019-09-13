@@ -12,7 +12,7 @@ const MAX_HEIGHT = 500;
  */
 const ColumnChart = ({ data }) => {
   return (
-    <div className="chart-holder">
+    <div className="column-chart-holder">
       {data.map((el, index) => {
         let style = {
           height: `${(el.y / MAX_HEIGHT) * 100}%`,

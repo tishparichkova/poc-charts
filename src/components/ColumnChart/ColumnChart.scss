@@ -1,7 +1,13 @@
-.chart-holder {
+.column-chart-wrapper {
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.column-chart-holder {
   width: 100%;
   border-bottom: 1px solid black;
-  height: 500px;
+  height: 500px; // this shouldd be changed later - now is POC
   display: flex;
   flex-direction: row;
   align-items: flex-end;
