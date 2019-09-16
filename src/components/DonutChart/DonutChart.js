@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import './PieChart.scss';
+import './DonutChart.scss';
 
 /**
- * Simple PieChart component,
+ * Simple DonutChart component,
  * will render the colors, and the percentage passed in the data parameter
  * 
  * @param {Array} colors - array of objects with properties fill and stroke
  * @param {Array} data - array of numbers
- * @param {Boolean} isWithDots - shall three dots be rendered inside the pie chart
+ * @param {Boolean} isWithDots - shall three dots be rendered inside the donut chart
  * @param {Array} legend - array
  */
-const PieChart = ({ colors, data, isWithDots, legend }) => {
+const DonutChart = ({ colors, data, isWithDots, legend }) => {
   const [details, setDetails] = useState([]);
 
   useEffect(() => {
@@ -37,8 +37,8 @@ const PieChart = ({ colors, data, isWithDots, legend }) => {
 
 
   return (
-    <div className="pie-chart-holder">
-      <div className="pie-chart">
+    <div className="donut-chart-holder">
+      <div className="donut-chart">
           {isWithDots &&
             <div className="dots-holder">
               <span className="single-dot"></span>
@@ -52,7 +52,7 @@ const PieChart = ({ colors, data, isWithDots, legend }) => {
                 return ( 
                   <circle
                     key={index}
-                    className="pie-chart-slice"
+                    className="donut-chart-slice"
                     fill={el.fill}
                     stroke={el.stroke}
                     strokeDasharray={el.strokeDashArray}
@@ -85,4 +85,4 @@ const PieChart = ({ colors, data, isWithDots, legend }) => {
   );
 };
 
-export { PieChart };
+export { DonutChart };

@@ -2,11 +2,11 @@ import React from 'react';
 import './ChartSection.scss';
 import { ColumnChart } from './../ColumnChart/ColumnChart';
 import { TimeLine } from './../TimeLine/TimeLine';
-import { PieChart } from './../PieChart/PieChart';
+import { DonutChart } from '../DonutChart/DonutChart';
 import { mockedData } from './../../mockedData';
 
 /**
- * ChartSection holds - column charts and pieCharts components
+ * ChartSection holds - column charts and DonutChart components
  *  
  */
 const ChartSection = () => {
@@ -14,35 +14,35 @@ const ChartSection = () => {
     <>
       <div className="chart-section">
         
-        <div className="pie-charts-holder">
-          <PieChart
-            colors={mockedData.pieChartColors}
-            data={mockedData.pieElements}
+        <div className="donut-charts-holder">
+          <DonutChart
+            colors={mockedData.donutChartColors}
+            data={mockedData.donutElements}
             isWithDots={true}
           />
-          <PieChart
-            colors={mockedData.pieChartColors}
-            data={mockedData.pieElements}
+          <DonutChart
+            colors={mockedData.donutChartColors}
+            data={mockedData.donutElements}
             isWithDots={false}
             legend={mockedData.legend}
           />
 
-          <PieChart
-            colors={mockedData.pieChartColors}
-            data={mockedData.pieElements}
+          <DonutChart
+            colors={mockedData.donutChartColors}
+            data={mockedData.donutElements}
             isWithDots={true}
           />
     
-          <PieChart
-            colors={mockedData.pieChartColors}
-            data={mockedData.pieElements}
+          <DonutChart
+            colors={mockedData.donutChartColors}
+            data={mockedData.donutElements}
             isWithDots={false}
             legend={mockedData.legend}
           />
         
-          <PieChart
-            colors={mockedData.pieChartColors}
-            data={mockedData.pieElements}
+          <DonutChart
+            colors={mockedData.donutChartColors}
+            data={mockedData.donutElements}
             isWithDots={false}
             legend={mockedData.legend}
 
