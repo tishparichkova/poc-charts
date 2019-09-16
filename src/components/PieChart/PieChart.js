@@ -2,31 +2,34 @@ import React, { useEffect, useState } from 'react';
 import './PieChart.scss';
 
 /**
- * Simple PieChar component,
- * will render the colors, and the percentage passed in the options parameter
+ * Simple PieChart component,
+ * will render the colors, and the percentage passed in the data parameter
  * 
- * @param {Array} options - list of attributes to be set to the element like: fill, stroke, strokedashArray, and strokedashOffset
+ * @param {Array} colors - array of objects with properties fill and stroke
+ * @param {Array} data - array of numbers
+ * @param {Boolean} isWithDots - shall three dots be rendered inside the pie chart
+ * @param {Array} legend - array
  */
 const PieChart = ({ colors, data, isWithDots, legend }) => {
-
   const [details, setDetails] = useState([]);
 
   useEffect(() => {
     let options = [];
-    let strokeDashOffset = 25;
     let singleSlice = {};
 
-    for (let counter = 0; counter < colors.length; counter++) {
-      singleSlice = Object.assign({}, colors[counter]);
+    colors.reduce((strokeDashOffset, singleSliceItem, index) => {
+      singleSlice = Object.assign({}, colors[index]);
+      
+      singleSlice.strokeDashArray = `${data[index]} ${100 - data[index]}`;
 
-      singleSlice.strokeDashArray = `${data[counter]} ${100 - data[counter]}`;
-
-      strokeDashOffset = counter === 0 ? 25 : strokeDashOffset - data[counter - 1];
-  
+      strokeDashOffset = index === 0 ? 25 : strokeDashOffset - data[index - 1];
+      
       singleSlice.strokeDashOffset = strokeDashOffset;
 
       options.push(singleSlice);
-    }
+
+      return strokeDashOffset;
+    }, 25)
 
     setDetails(options);
 
